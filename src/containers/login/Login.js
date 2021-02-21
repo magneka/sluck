@@ -1,9 +1,13 @@
 import {useContext} from 'react'
-import FirebaseContext from "../../providers/FirebaseContext";
+import { FirebaseContext } from '../../firebase'; 
 
 export const Login = () => {
 
-    const signInWithGoogle = () => {}
+    const FirebaseRepository = useContext(FirebaseContext)
+
+    const signInWithGoogle = () => {
+        FirebaseRepository.doGoogleSigninWithPopup()
+    }
 
     /*
     const {_Firebase, firestore, auth} = useContext(FirebaseContext);   
