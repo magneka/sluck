@@ -12,7 +12,7 @@ const MainLayout = (props) => {
         <Router>
             <RootContainer>
                 <HeaderArea>
-                    menu<Menu />                    
+                    <Menu />                    
                 </HeaderArea>                
 
                 <ContentArea>

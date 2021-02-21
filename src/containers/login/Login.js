@@ -2,16 +2,20 @@ import {useContext} from 'react'
 import FirebaseContext from "../../providers/FirebaseContext";
 
 export const Login = () => {
-    const [firebase, auth, firestore] = useContext(FirebaseContext);    
+
+    const signInWithGoogle = () => {}
+
+    /*
+    const {_Firebase, firestore, auth} = useContext(FirebaseContext);   
     
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    _Firebase.auth().setPersistence(Firebase.auth.Auth.Persistence.SESSION)
     const signInWithGoogle = () => {
         try {
-            let provider = new firebase.auth.GoogleAuthProvider();
+            let provider = new _Firebase.auth.GoogleAuthProvider();
             //var provider = new firebase.auth.GithubAuthProvider();
             auth.signInWithPopup(provider)
                 .then((result) => {
-                    /** @type {firebase.auth.OAuthCredential} */
+                    // @type {firebase.auth.OAuthCredential} /
                     var credential = result.credential;
 
                     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -36,6 +40,7 @@ export const Login = () => {
             console.log(error)
         }
     }
+    */
 
     return (
   
