@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+
+// Merk bruk av grid templates, gir en veldig ryddig måte å sette opp layout 
+// Fordi du kan se alt i denne filen
 const RootContainer = styled.div`  
   display: grid;
   grid-template-columns: auto;

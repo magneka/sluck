@@ -16,10 +16,12 @@ const MainLayout = (props) => {
                 </HeaderArea>                
 
                 <ContentArea>
+                    {/* Approutes er komponenten der routeren swapper valget fra menyen*/}
                     <AppRoutes />
                 </ContentArea>
 
                 <FooterArea>
+                    {/* Footeren kunne vært en komponent der man skrev en ny melding?? */}
                     Footer
                 </FooterArea>
             </RootContainer>
