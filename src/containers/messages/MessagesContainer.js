@@ -22,6 +22,8 @@ For dem som vil prøve seg på map/sort/reduce
     eller den som har nyeste like/eller svar komme først, hvordan skal det løses
 
 For dem som syns dette var alt for enkelt
+[ ] Hvordan skal du løse oppfriske meldinger ?
+[ ] Skal du kunne ekspandere/minimere replies ?
 [ ] Kanskje du kan legge til filtrering på person, 
     vis kun inlegg fra, kommentert eller likt av
     Du må da ha en filter input et eller annet sted, (header, på toppen av siden??) 
@@ -51,7 +53,7 @@ export const MessagesContainer = () => {
 
     return (
         <>
-            her skal meldingene komme
+            Vi har {messages.length} melding(er).
         </>
     )
 
