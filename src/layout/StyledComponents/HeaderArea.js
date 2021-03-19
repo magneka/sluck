@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const HeaderArea = styled.div`  
   font-family: 'Fira Sans', sans-serif;
   font-size: 40px;
-  color: white;
+  color: #797596;
   padding: 15px 15px 15px 15px;
   background-color: #3F0E41;
 

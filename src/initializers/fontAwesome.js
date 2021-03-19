@@ -6,7 +6,8 @@ import {
     faEdit, 
     faList,
     faUser,
-    faUserSlash
+    faUserSlash,
+    faThumbsUp
  } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faCoffee, faEdit, faList, faUser, faUserSlash)
+library.add(fab, faCheckSquare, faCoffee, faEdit, faList, faUser, faUserSlash, faThumbsUp)

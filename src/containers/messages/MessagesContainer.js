@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
-import { getMessages, postMessage } from '../../firebase'
+import { getMessages, postMessage, likePost } from '../../firebase'
+import { MessageComponent } from './Components/MessageComponent'
 
 /*
 Frontend fagrrupe 12 mars 2021
 
 TODOS: 
-[ ] Dette er en container, du trenger flere componenter til å presentere en melding, respons og likes lag disse
-[ ] Disse kompoenentene må du lage som styled components 
-[ ] Hvor skal disse ligge (underkataloger eller globale)
-[ ] For å presentere meldingene må du ha en slik struktur som dette: 
+[x] Dette er en container, du trenger flere componenter til å presentere en melding, respons og likes lag disse
+[x] Disse kompoenentene må du lage som styled components 
+[x] Hvor skal disse ligge (underkataloger eller globale)
+[x] For å presentere meldingene må du ha en slik struktur som dette: 
    {messages && messages.map(message => {
                 return ( .. kompoenenter her)
     }
-[ ] Husk at du skal du fikse ukjent antall replies også
-[ ] Du må ha komponenter der du skal kunne like en melding
+[x] Husk at du skal du fikse ukjent antall replies også
+[x] Du må ha komponenter der du skal kunne like en melding
 [ ] Du må ha komponenter der du skal kunne svare på en melding
 [ ] I utgangspunktet vises antall likes, men man skal også kunne se hvem
 
@@ -54,6 +55,15 @@ export const MessagesContainer = () => {
     return (
         <>
             Vi har {messages.length} melding(er).
+
+            {messages && messages.map(message => {
+                return (
+                    <MessageComponent
+                        message={message}
+                        likePost={likePost}
+                    />
+                )
+            })}
         </>
     )
 

@@ -5,18 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const MenuButton = styled.button`
     font-family: 'Fira Sans', sans-serif;
     font-size: 30px;   
-    color: white;
-
     text-decoration: none;
+    color: red; //#d1c6ad;
     
     border-radius: 8px;
     margin-right: 10px;
-    border: 1px solid white;
+    border: 1px solid 797596;
     padding: 5px 10px 5px 10px;
-    background-color: #3F0E41;
+    background-color: #d1c6ad; // #3F0E41;
 
     &:hover {
-        border: 5px solid gray;
+        border: 5px solid #797596;
     }
 `
 
