@@ -14,20 +14,25 @@ TODOS:
                 return ( .. kompoenenter her)
     }
 [x] Husk at du skal du fikse ukjent antall replies også
-[x] Du må ha komponenter der du skal kunne like en melding
-[ ] Du må ha komponenter der du skal kunne svare på en melding
-[ ] I utgangspunktet vises antall likes, men man skal også kunne se hvem
+
+[X] Du må vise antall likes
+
+[ ] Du må kunne poste en ny melding
+[ ] Du vise hvem som like't, og den skal kunne toggles 
+[ ] Du må kunne like en melding, (se repo, du må fikse metode som lagrer like) 
+[ ] Du må kunne svare på en melding (se repo, du må fikse  metode som lagrer reply)
 
 For dem som vil prøve seg på map/sort/reduce
 [ ] Hvordan sorterer du meldingene, ideelt skal den som har den nyeste kommentaren, 
     eller den som har nyeste like/eller svar komme først, hvordan skal det løses
 
 For dem som syns dette var alt for enkelt
-[ ] Hvordan skal du løse oppfriske meldinger ?
-[ ] Skal du kunne ekspandere/minimere replies ?
+[ ] Skal du kunne ekspandere/minimere replies (toggle)?
 [ ] Kanskje du kan legge til filtrering på person, 
     vis kun inlegg fra, kommentert eller likt av
     Du må da ha en filter input et eller annet sted, (header, på toppen av siden??) 
+
+[ ] Du kan jo prøve å lage til en reducer for håndtering av state?
 
 For dem som er noe så inni he#$#% expert.... 
 [ ] Lag dark mode og ligth mode på stylingen

@@ -1,101 +1,76 @@
-/*
-TODO:
-  Populer messagelist slik at du kan bruke den til å hente data til messages
-  
-  // senere
-  Kanskje flere metoder til: login logout ++ ??
-  Legg messagelist i context for global tilgang ??
-  Koble metodene til FIREBASE 
+import Dexie from 'dexie';
+import { messageList } from './initialData'
 
-  eller bruke DEXIE mot indexedDb
-  https://dexie.org/docs/Samples
+/*
+Her er det en smak på PWD
+Nå bruker vi Dexie som lag oppå IndexedDb
+https://dexie.org/
+https://dexie.org/docs/
+
+TODO:  
+  [ ] Fyll ut likes metoden, se nøye på dokumentasjonen
+      https://dexie.org/docs/Table/Table.update()
+
+  [ ] Fikk du til likes? Fyll ut reply metoden på samme måte
+      Merk at her må du håndtere ID på reply selv
+
+  [ ] Lag til opplegg for brukere, med seed av bruker/passord
+  [ ] Lag til login metode, må du ha en tabell der du husker pålogget??
+
+  [ ] Dersom pålogget fungerer, kan du endre tenke på hvordan du kan 
+      bruke pålogget bruker til posting, like og reply
 
 */
 
+var db = new Dexie("sluckDb");
+db.version(1).stores({
+    messages: '++id,messageText,fromEmail,date,likes,replies',
+    users: '++id,email,fullname'
+});
+
+
+export const seed = () => {
+
+    db.messages.count().then(numMessages => {
+        
+        console.log(numMessages)
+
+        if (numMessages === 0) {
+            messageList.map(message => {
+                postMessage(message)
+            })
+        }
+    })    
+}
+
+seed()
+
+
 export const likePost = (message) => {
+    console.log(message);   
+}
+
+export const reply = (message) => {
     console.log(message);
 }
 
-export const reply = (message, replyId) => {
-
-}
-
 export const postMessage = (message) => {
-    
+    db.messages.put(message).then(function (id) {
+        console.log('Record inserted #', id)
+    }).catch(function (error) {
+        console.log("Ooops: " + error)
+    })
 }
 
+/**
+ * Funksjon for å hente alle rader
+ * @param {*} setMessageFunc 
+ */
 export const getMessages = (setMessageFunc) => {
 
-    const messageList =
-        [
-            {
-                id: 1,
-                messageText: 'The very first posting on sluck! It will be framed and hung on the wall', 
-                fromEmail: 'magnea@uc.no',
-                date: '2012-04-23T18:25:43.511Z',
-                likes: [
-                    'bill.gates@microsoft.com', 'steve.jobs@apple.com', 'nelson@mandela.com'
-                ],
-                replies: [
-                    {
-                        id: 1,
-                        messageText: 'I am very impressed with your posting',
-                        fromEmail: 'knut@uc.no',
-                        date: '2012-04-23T18:25:43.511Z',
-                        likes: [
-                            'torstein.vadla@uc.no'
-                        ]
-                    },
-                    {
-                        id: 2,
-                        messageText: 'Me too...',
-                        fromEmail: 'robin@uc.no',
-                        date: '2012-04-23T18:25:43.511Z',
-                        likes: [
-                            'torstein.vadla@uc.no'
-                        ]
-                    }
-                ]
-            },
-            {
-                id: 2,
-                messageText: 'The second posting on sluck! It will be framed and hung on the wall',
-                fromEmail: 'magnea@uc.no',
-                date: '2012-04-23T18:25:43.511Z',
-                likes: [],
-                replies: []
-            },           
-            {
-                id: 3,
-                messageText: 'Har dere prøvd https://coolors.co/.  Fantastisk site som genererer en fargepalette med matchende farger.',
-                fromEmail: 'magnea@uc.no',
-                date: '2012-04-23T18:25:43.511Z',
-                likes: [],
-                replies: []                
-            },
-            ,
-            {
-                id: 3,
-                messageText: 'Når du har markøren over antall likes, skal du vise alle personene.  Kan dette være noe å se på.',
-                fromEmail: 'magnea@uc.no',
-                date: '2012-04-23T18:25:43.511Z',
-                likes: [],
-                replies: [
-                    {
-                        id: 1,
-                        messageText: 'Eg berre elska react',
-                        fromEmail: 'tone.damli@drægni.no',
-                        date: '2012-04-23T18:25:43.511Z',
-                        likes: [
-                            'torstein.vadla@uc.no'
-                        ]
-                    }
-                ]
-            }    
-        ]
-    
-    setMessageFunc(messageList)
-
+    db.messages.toArray(
+        messageList => setMessageFunc(messageList)
+    )
 }
 
 //https://prod.liveshare.vsengsaas.visualstudio.com/join?24885D3CDDD1EE48C561169387521304B93C
