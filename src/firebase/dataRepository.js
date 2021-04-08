@@ -47,14 +47,25 @@ seed()
 
 
 export const likePost = (message) => {
-    console.log(message);   
+    console.log(message);
+
+    // TODO her må noko gjerast....
 }
 
 export const reply = (message) => {
     console.log(message);
+
+    // TODO her må også noko gjerast....
+}
+
+export const likeReply = (message, replyId) => {
+    console.log(message);
+
+    // TODO her må også noko gjerast....
 }
 
 export const postMessage = (message) => {
+
     db.messages.put(message).then(function (id) {
         console.log('Record inserted #', id)
     }).catch(function (error) {
@@ -67,6 +78,8 @@ export const postMessage = (message) => {
  * @param {*} setMessageFunc 
  */
 export const getMessages = (setMessageFunc) => {
+
+    // TODO kune du sendt inne både message og error funksjon her??
 
     db.messages.toArray(
         messageList => setMessageFunc(messageList)

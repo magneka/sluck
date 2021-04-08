@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styled from 'styled-components'
-import { likePost } from '../../../firebase'
+import { likePost, likeReply } from '../../../firebase'
 
 // Colors https://coolors.co/d1c6ad-bbada0-390040-a1869e-797596
 
@@ -41,6 +41,11 @@ const ReplyMessageArea = styled.div`
     padding-left:40px;
     font-weight: 400;
     font-size: 20px;
+`
+
+const ReplyArea = styled.div`
+    padding-top: 2px;     
+    padding-left:40px;    
 `
 
 const LikeButton = styled.button`
@@ -87,6 +92,7 @@ export const MessageComponent = (props) => {
                         <>
                             <ReplyHeader> Den { utcToDate(reply.date)} { reply.fromEmail} svarte:</ReplyHeader>
                             <ReplyMessageArea>{reply.messageText}</ReplyMessageArea>
+                            <ReplyArea>{showLikes(reply, likeReply)}</ReplyArea>
                         </>
                     )
                 })}
